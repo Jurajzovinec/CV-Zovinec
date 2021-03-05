@@ -4,6 +4,9 @@
   "description": "CV of Juraj Zovinec",
   "main": "index.js",
   "scripts": {
+    "go-to-client": "cd client",
+    "init-cv": "react-scripts start",
+    "start": "go-to-client && init-cv",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
