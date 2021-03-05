@@ -28,7 +28,7 @@ span{
   padding-left: 1em;
 }
 
-.expandible-item-expanded, .expandible-item-collapsed, .deaf-item{
+.expandible-item-expanded, .expandible-item-collapsed, .deaf-item, .reference-item{
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -46,16 +46,10 @@ span{
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.clickable-item:hover{
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.2);
+.reference-item:hover{
+  cursor: help;
+  background-color: rgba(0, 0, 0, 0.05);
 }
-
-.clickable-item:checked{
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 
 
 

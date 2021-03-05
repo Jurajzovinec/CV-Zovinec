@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import CV from './CV.json';
+import cv from './json/cv.json';
 import CvInformation from './components/CvInformation';
 
 class App extends React.Component {
@@ -8,7 +8,7 @@ class App extends React.Component {
     super();
     
     this.state = {
-      cvDetails: CV.CV
+      cvDetails: cv.CV
     };
   }
 

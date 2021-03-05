@@ -15,12 +15,13 @@
                 "Babel"
             ],
             "Python": [
+                "CustomLibrary",
                 "Tkinter",
                 "Creopyson",
-                "Unit testing"
+                "UnitTesting"
             ],
             "Database": [
-                "AWS S3",
+                "AwsS3",
                 "MongoDB",
                 "Firestore",
                 "Windchill"

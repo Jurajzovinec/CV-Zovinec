@@ -1,27 +1,47 @@
 import React, { useState, useRef } from 'react';
+import snippets from '..//json/snippets.json';
 
 export default function CvInformation(props) {
 
     let mappedList = [];
 
-    const [expanded, setExpanded] = useState(() => false);
-
-    const [refURL, setRefURL] = useState(() => "");
-
-    const isCollapsible = useRef(() => true);
-
-    const isClickable = useRef(() => true);
-
-    const clickAction = () => {
-        setExpanded(!expanded);
+    const assignSnippets = () => {
+        if (Object.keys(snippets.snippets).includes(props.name)) {
+            console.log('Found in snippets');
+            console.log(snippets.snippets[props.name]);
+            return snippets.snippets[props.name];
+        } else {
+            return "";
+        }
     };
 
-    if (props.data === null || props.data === undefined) {
-        isCollapsible.current = false;
-    }
+    const navigateToRef = (URL) => {
+        const win = window.open(URL, '_blank');
+        win.focus();
+    };
 
-    if (isCollapsible.current === false && refURL === "") {
-        isClickable.current = false;
+    const [expanded, setExpanded] = useState(() => false);
+
+    // const [refURL, setRefURL] = useState(() => assignSnippets());
+
+    const refURL = useRef(assignSnippets());
+    console.log(refURL.current);
+    console.log(props.name);
+    const isClickable = useRef(false);
+
+    const clickAction = () => {
+
+        if (refURL.current !== "") {
+            // for reference-item class
+            navigateToRef(refURL.current);
+        } else {
+            // for expandible menu
+            setExpanded(!expanded);
+        }
+    };
+
+    if (refURL.current !== "" || (props.data !== undefined && props.data !== null)) {
+        isClickable.current = true;
     }
 
     if (props.data) {
@@ -51,19 +71,19 @@ export default function CvInformation(props) {
 
         let className = "defaultClassName";
         switch (true) {
-            case (isClickable.current && expanded):
+            case (isClickable.current && expanded && refURL.current === ""):
                 className = "expandible-item-expanded";
                 break;
-            case (isClickable.current && !expanded):
+            case (isClickable.current && !expanded && refURL.current === ""):
                 className = "expandible-item-collapsed";
                 break;
-            case (refURL!==""):
+            case (refURL.current !== ""):
                 className = "reference-item";
                 break;
             default:
                 className = "deaf-item";
         }
-        
+
         return className;
     };
 
@@ -79,7 +99,7 @@ export default function CvInformation(props) {
 
 
             {expanded ?
-                <div className="cv-information-recursed-container">
+                <div>
                     {mappedList.map(nestedItem => {
                         return <CvInformation
                             name={nestedItem.name}
