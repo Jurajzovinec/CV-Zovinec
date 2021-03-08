@@ -7,8 +7,6 @@ export default function CvInformation(props) {
 
     const assignSnippets = () => {
         if (Object.keys(snippets.snippets).includes(props.name)) {
-            console.log('Found in snippets');
-            console.log(snippets.snippets[props.name]);
             return snippets.snippets[props.name];
         } else {
             return "";
@@ -22,20 +20,15 @@ export default function CvInformation(props) {
 
     const [expanded, setExpanded] = useState(() => false);
 
-    // const [refURL, setRefURL] = useState(() => assignSnippets());
-
     const refURL = useRef(assignSnippets());
-    console.log(refURL.current);
-    console.log(props.name);
+
     const isClickable = useRef(false);
 
     const clickAction = () => {
 
         if (refURL.current !== "") {
-            // for reference-item class
             navigateToRef(refURL.current);
         } else {
-            // for expandible menu
             setExpanded(!expanded);
         }
     };
@@ -69,7 +62,7 @@ export default function CvInformation(props) {
 
     const determineClassName = () => {
 
-        let className = "defaultClassName";
+        let className;
         switch (true) {
             case (isClickable.current && expanded && refURL.current === ""):
                 className = "expandible-item-expanded";
@@ -83,7 +76,6 @@ export default function CvInformation(props) {
             default:
                 className = "deaf-item";
         }
-
         return className;
     };
 
@@ -92,14 +84,11 @@ export default function CvInformation(props) {
 
             <div
                 className={determineClassName()}
-                onClick={isClickable.current ? () => clickAction() : undefined}
-            >
+                onClick={isClickable.current ? () => clickAction() : undefined}>
                 <span>{props.name}</span>
             </div>
 
-
-            {expanded ?
-                <div>
+            {expanded ? <div>
                     {mappedList.map(nestedItem => {
                         return <CvInformation
                             name={nestedItem.name}
@@ -107,8 +96,8 @@ export default function CvInformation(props) {
                             key={nestedItem.name}
                         />
                     })}
-                </div> : null
-            }
+                </div> : null}
+        
         </div>
     )
 }

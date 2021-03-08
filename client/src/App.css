@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: white;
+}
+
 body{
   margin:0;
   padding:0;
@@ -6,28 +14,59 @@ body{
   background-color: rgb(60, 90, 50);
 }
 
+span{
+  padding-left: 1em;
+  font-size: 1.2em;
+}
+
+
 #root{
   align-items: center;
   justify-content: center;
 }
 
-span{
-  padding-left: 1em;
-  font-family: verdana;
-  font-size: 1em;
-  color: white
+/*1st level -> Main content object (upper root)*/
+.content{
+  display: flex;
+  flex-direction: column;
 }
 
-.recursive-ladder{
-  margin: 2em;
-  padding: 2em;
+/*2nd level -> Main content items (upper .content)*/
+.content__cv-recursive-ladder{
+  flex:1;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-left: 2em;
+  padding-top: 2em;
+  padding-right: 2em;
+  padding-left: 2em;
 }
 
+.content__techonologies-visualization{
+  flex:1;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-left: 2em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+.content__project-room-enter{
+  flex:1;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-left: 2em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+/*3rd level -> CV information container (upper .content__cv-recursive-ladder)*/
 .cv-information-container{
   padding-right: 1.2em;
   padding-left: 1em;
 }
 
+/*4th level -> Optional classes of CV (upper .cv-information-container)*/
 .expandible-item-expanded, .expandible-item-collapsed, .deaf-item, .reference-item{
   display: flex;
   justify-content: flex-start;
@@ -51,58 +90,30 @@ span{
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*Check box*/
-input[type="checkbox"]{
-  outline: none;
-  position: relative;
-  vertical-align: middle;
-  width: 8em;
-  height: 3em;
-  -webkit-appearance: none;
-  background: none;
-  border: 2px solid #fafafa;
-  border-radius: 1em;
+/*3rd level -> Technologies event Button (upper .content__techonologies-visualization)*/
+.technologies-event-button{
   cursor: pointer;
+  /*background-color: rgba(0, 0, 0, 0.2);*/
+  padding-right: 1.2em;
+  padding-left: 1em;
+  padding-top: 0.5em;  
+  padding-bottom: 0.5em;  
 }
 
-input:checked[type="checkbox"]
-{
-  background: #ffffff;
-  box-shadow: 0em 0em 0.5em #757572;
-}
 
-input[type="checkbox"]:before{
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 2em;
-  height: 1.5em;
-  border: 2px solid #dac616;
-  border-radius: 50%;
-  background-image: linear-gradient(rgb(15, 15, 15),rgb(150, 150, 150));
-  transition: 0.5s;
-}
 
-input:checked[type="checkbox"]:before{
-  position: absolute;
-  left: 4.5em;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

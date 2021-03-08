@@ -61,24 +61,9 @@
                 "Providing CAD support to other mechanical/electrical engineers by creating models of purchased parts and adding them to database",
                 "Parametric Design",
                 "3D model database maintainence",
-                "Solve with issues regarding used CAD software",
-                "Discuss new solutions with other keyuser colleagues regarding used CAD software",
+                "Problem solving issues regarding used CAD software",
                 "Implementation of automated processes regarding used CAD software"
             ]
-        },
-        "TechnologiesToLearnOrImproveIn": [
-            "CSS",
-            "ReactJs",
-            "Algorithmic Design",
-            "IoT",
-            "3D visualization",
-            "Docker",
-            "Kubernetes",
-            "Design Patterns",
-            "Best Practices"
-        ],
-        "ProjectRoom": {
-            "Enter": "Enter"
         }
     }
 }
