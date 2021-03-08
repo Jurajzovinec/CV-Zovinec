@@ -1,48 +1,78 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame } from 'react-three-fiber';
 import { OrbitControls } from '@react-three/drei';
-import Text from './Text';
-import technologiesToImproveIn from '../json/technologiesToImproveIn.json';
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-function TechnologiesVisualizationComponent() {
 
-    const ref = useRef();
-    useFrame(({ clock }) => (ref.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.1))
-    let incrementingHeight = ((technologiesToImproveIn.TechnologiesToLearnOrImproveIn.length+1) * 4.2) / 2;
-    return (
-        <group ref={ref}>
-            {
-                technologiesToImproveIn.TechnologiesToLearnOrImproveIn.map((technology) => {
-                    incrementingHeight -= 4.2;
-                    return <Text
-                        hAlign="center"
-                        size={0.5}
-                        position={[0, incrementingHeight, 0]}
-                        children={technology.toUpperCase().replace(/ /g, "")}
-                        key={Math.random()}
-                    />
-                })
-            }
-        </group>
-    )
+const TableModel = (props) => {
+    const url = "TableOfProjects.gltf";
+    const [gltf, set] = useState();
+    useMemo(() => new GLTFLoader().load(url, set), [url]);
+    return gltf ?
+    (<mesh {...props}>
+        <primitive object={gltf.scene}/>
+    </mesh>) : null;
 }
 
+const FruitFlyDispenser = (props) => {
+    const url = "FruitFlyDispenser.gltf";
+    const [gltf, set] = useState();
+    useMemo(() => new GLTFLoader().load(url, set), [url]);
+    return gltf ?
+    (<mesh {...props}>
+        <primitive object={gltf.scene}/>
+    </mesh>) : null;
+}
 
-export default function TechnologiesVisualization() {
+const SurfBoard = (props) => {
+    const url = "SurfBoard.gltf";
+    const [gltf, set] = useState();
+    useMemo(() => new GLTFLoader().load(url, set), [url]);
+    return gltf ?
+    (<mesh {...props}>
+        <primitive object={gltf.scene}/>
+    </mesh>) : null;
+}
+
+const DrawingSlicer = (props) => {
+    const url = "DrawingSlicer.gltf";
+    const [gltf, set] = useState();
+    useMemo(() => new GLTFLoader().load(url, set), [url]);
+    return gltf ?
+    (<mesh {...props}>
+        <primitive object={gltf.scene}/>
+    </mesh>) : null;
+}
+
+const TwoDPlotter = (props) => {
+    const url = "2DPlotter.gltf";
+    const [gltf, set] = useState();
+    useMemo(() => new GLTFLoader().load(url, set), [url]);
+    return gltf ?
+    (<mesh {...props}>
+        <primitive object={gltf.scene}/>
+    </mesh>) : null;
+}
+
+export default function ProjectRoom() {
     return (
         <div className="technologies__technologies-canvas">
-            <Canvas concurrent shadowMap camera={{ position: [0, 0, 140], fov: 20 }}>
-                <color attach="background" args={['#3C5A32']} />
+            <Canvas concurrent shadowMap camera={{ position: [0, 0, 10], fov: 20 }}>
+                <color attach="background" args={['#fff']} />
                 <ambientLight intensity={0.4} />
                 <Suspense fallback={null}>
-                    <TechnologiesVisualizationComponent />
+                    <TableModel rotation={[-Math.PI / 2, 0, 0]} />
+                    <FruitFlyDispenser rotation={[0, 0, 0]} position={[-0.65, 0.28, 0.2]} scale={[1.5, 1.5, 1.5]}/>
+                    <TwoDPlotter rotation={[-Math.PI / 2, 0, 0]} position={[-0.3, 0.075, -0.23]}/>
+                    <DrawingSlicer rotation={[-Math.PI / 2, 0, -Math.PI / 2]} position={[0.27, 0.14, -0.13]} scale={[1.5, 1.5, 1.5]}/>
+                    <SurfBoard rotation={[-Math.PI/10, 0, 0]} scale={[0.2, 0.2, 0.2]} position={[0.65, 0.05, 0.0]}/>
                 </Suspense>
                 <OrbitControls
-                    enablePan={false}
+                    enablePan={true}
                     target={[0, 0, 0]}
                     enableDamping={true}
-                    minPolarAngle={Math.PI / 2}
-                    maxPolarAngle={Math.PI / 2}
+                    // minPolarAngle={Math.PI / 2}
+                    // maxPolarAngle={Math.PI / 2}
                     minDistance={3}
                     maxDistance={400}
                 />
