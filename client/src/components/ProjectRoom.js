@@ -9,9 +9,9 @@ const TableModel = (props) => {
     const [gltf, set] = useState();
     useMemo(() => new GLTFLoader().load(url, set), [url]);
     return gltf ?
-    (<mesh {...props}>
-        <primitive object={gltf.scene}/>
-    </mesh>) : null;
+        (<mesh {...props}>
+            <primitive object={gltf.scene} />
+        </mesh>) : null;
 }
 
 const FruitFlyDispenser = (props) => {
@@ -19,9 +19,9 @@ const FruitFlyDispenser = (props) => {
     const [gltf, set] = useState();
     useMemo(() => new GLTFLoader().load(url, set), [url]);
     return gltf ?
-    (<mesh {...props}>
-        <primitive object={gltf.scene}/>
-    </mesh>) : null;
+        (<mesh {...props}>
+            <primitive object={gltf.scene} />
+        </mesh>) : null;
 }
 
 const SurfBoard = (props) => {
@@ -29,9 +29,9 @@ const SurfBoard = (props) => {
     const [gltf, set] = useState();
     useMemo(() => new GLTFLoader().load(url, set), [url]);
     return gltf ?
-    (<mesh {...props}>
-        <primitive object={gltf.scene}/>
-    </mesh>) : null;
+        (<mesh {...props}>
+            <primitive object={gltf.scene} />
+        </mesh>) : null;
 }
 
 const DrawingSlicer = (props) => {
@@ -39,9 +39,9 @@ const DrawingSlicer = (props) => {
     const [gltf, set] = useState();
     useMemo(() => new GLTFLoader().load(url, set), [url]);
     return gltf ?
-    (<mesh {...props}>
-        <primitive object={gltf.scene}/>
-    </mesh>) : null;
+        (<mesh {...props}>
+            <primitive object={gltf.scene} />
+        </mesh>) : null;
 }
 
 const TwoDPlotter = (props) => {
@@ -49,9 +49,27 @@ const TwoDPlotter = (props) => {
     const [gltf, set] = useState();
     useMemo(() => new GLTFLoader().load(url, set), [url]);
     return gltf ?
-    (<mesh {...props}>
-        <primitive object={gltf.scene}/>
-    </mesh>) : null;
+        (<mesh {...props}>
+            <primitive object={gltf.scene} />
+        </mesh>) : null;
+}
+
+const ImmMachinePart = (partUrl) => {
+
+    const [gltf, set] = useState();
+    useMemo(() => new GLTFLoader().load(partUrl, set), [partUrl]);
+    return gltf ?
+        (<primitive object={gltf.scene} />) : null;
+}
+
+const ImmMachineAssembly = (props) => {
+    const partsUrl = ["IMM-Alarm.gltf", "IMM-Base.gltf", "IMM-ControlDisplay.gltf", "IMM-Dispenser.gltf", "IMM-Injection.gltf", "IMM-Panneling.gltf"]
+    return (
+        <mesh {...props}>
+            {partsUrl.map((eachPart)=>ImmMachinePart(eachPart))}
+        </mesh>
+    )
+
 }
 
 export default function ProjectRoom() {
@@ -62,10 +80,15 @@ export default function ProjectRoom() {
                 <ambientLight intensity={0.4} />
                 <Suspense fallback={null}>
                     <TableModel rotation={[-Math.PI / 2, 0, 0]} />
-                    <FruitFlyDispenser rotation={[0, 0, 0]} position={[-0.65, 0.28, 0.2]} scale={[1.5, 1.5, 1.5]}/>
-                    <TwoDPlotter rotation={[-Math.PI / 2, 0, 0]} position={[-0.3, 0.075, -0.23]}/>
-                    <DrawingSlicer rotation={[-Math.PI / 2, 0, -Math.PI / 2]} position={[0.27, 0.14, -0.13]} scale={[1.5, 1.5, 1.5]}/>
-                    <SurfBoard rotation={[-Math.PI / 2-Math.PI / 12, 0, Math.PI]} scale={[0.35, 0.35, 0.35]} position={[0.65, 0.7, -0.2]}/>
+                    
+                    <FruitFlyDispenser rotation={[0, 0, 0]} position={[-0.65, 0.28, 0.2]} scale={[1.5, 1.5, 1.5]} />
+                    <TwoDPlotter rotation={[-Math.PI / 2, 0, 0]} position={[-0.40, 0.057, -0.23]} />
+
+                    <ImmMachineAssembly rotation={[-Math.PI / 2, 0, Math.PI / 2]} scale={[0.07, 0.07, 0.07]} position={[0, 0.17, -0.14]}/>
+
+                    <DrawingSlicer rotation={[-Math.PI / 2, 0, -Math.PI / 2]} position={[0.41, 0.14, -0.09]} scale={[1.5, 1.5, 1.5]} />
+                    <SurfBoard rotation={[-Math.PI / 2 - Math.PI / 12, 0, Math.PI]} scale={[0.35, 0.35, 0.35]} position={[0.71, 0.66, -0.2]} />
+
                 </Suspense>
                 <OrbitControls
                     enablePan={true}
