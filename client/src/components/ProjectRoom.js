@@ -65,7 +65,7 @@ export default function ProjectRoom() {
                     <FruitFlyDispenser rotation={[0, 0, 0]} position={[-0.65, 0.28, 0.2]} scale={[1.5, 1.5, 1.5]}/>
                     <TwoDPlotter rotation={[-Math.PI / 2, 0, 0]} position={[-0.3, 0.075, -0.23]}/>
                     <DrawingSlicer rotation={[-Math.PI / 2, 0, -Math.PI / 2]} position={[0.27, 0.14, -0.13]} scale={[1.5, 1.5, 1.5]}/>
-                    <SurfBoard rotation={[-Math.PI/10, 0, 0]} scale={[0.2, 0.2, 0.2]} position={[0.65, 0.05, 0.0]}/>
+                    <SurfBoard rotation={[-Math.PI / 2-Math.PI / 12, 0, Math.PI]} scale={[0.35, 0.35, 0.35]} position={[0.65, 0.7, -0.2]}/>
                 </Suspense>
                 <OrbitControls
                     enablePan={true}
