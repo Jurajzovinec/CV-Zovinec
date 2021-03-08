@@ -1,14 +1,13 @@
-import React, {useState} from 'react';
-import TechnologiesVisualization from './TechnologiesVisualization';
+import React, { useState } from 'react';
+import ProjectRoom from './ProjectRoom';
 
-export default function TechnologiesEventButton(props) {
-    
+export default function EnterProjectRoom(props) {
+
     const [expanded, setExpanded] = useState(() => false);
 
     const clickAction = () => {
-            setExpanded(!expanded);
+        setExpanded(!expanded);
     };
-
 
     const determineClassName = () => {
 
@@ -27,15 +26,19 @@ export default function TechnologiesEventButton(props) {
     };
 
     return (
-        <div className="technologies-event-button">
+        <div className="enter-project-room">
             <div
                 className={determineClassName()}
-                onClick={()=>clickAction()}>
+                onClick={() => clickAction()}>
                 <span>{props.name}</span>
             </div>
             {
-                expanded && <TechnologiesVisualization/>
+                expanded &&
+                <div className="enter-the-project-room__button-container">
+                    <button className="button-container__enter-button" >Enter the room</button>
+                </div>
             }
+            <ProjectRoom/>
         </div>
     )
 }

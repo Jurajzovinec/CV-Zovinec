@@ -6,6 +6,10 @@
   color: white;
 }
 
+*:focus {
+  outline: none;
+}
+
 body{
   margin:0;
   padding:0;
@@ -90,15 +94,57 @@ span{
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/*3rd level -> Technologies event Button (upper .content__techonologies-visualization)*/
-.technologies-event-button{
+/*3rd level -> Technologies event Button (upper .content__techonologies)*/
+.technologies{
   cursor: pointer;
-  /*background-color: rgba(0, 0, 0, 0.2);*/
   padding-right: 1.2em;
   padding-left: 1em;
   padding-top: 0.5em;  
   padding-bottom: 0.5em;  
 }
+
+/*4th level -> Technologies (event button) (upper .techonologies)*/
+.technologies__technologies-canvas{
+  height: 500px;
+}
+
+/*3rd level -> Enter the project room event button (upper .content__techonologies-visualization)*/
+.enter-project-room{
+  cursor: pointer;
+  padding-right: 1.2em;
+  padding-left: 1em;
+  padding-bottom: 0.5em;  
+}
+
+/*4th level -> Enter the project room container (upper .content__techonologies-visualization)*/
+.enter-the-project-room__button-container{
+  height: 10em;
+  position: relative
+}
+
+.button-container__enter-button{
+  color: #000;
+  font-size:1.2em;
+  margin: 0;
+  position: absolute;
+  width: 9em;
+  height: 3em;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  border-radius:1.5em
+}
+
+.button-container__enter-button:hover{
+  cursor: pointer;
+  background-color:  rgb(200, 200, 200);
+  border: solid 3px;
+  border-color:rgb(230, 230, 230);
+  box-shadow: 5px #888888;
+  outline: none;
+}
+
 
 
 

@@ -8,7 +8,7 @@ function TechnologiesVisualizationComponent() {
 
     const ref = useRef();
     useFrame(({ clock }) => (ref.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.1))
-    let incrementingHeight = ((technologiesToImproveIn.TechnologiesToLearnOrImproveIn.length) * 4.2) / 2;
+    let incrementingHeight = ((technologiesToImproveIn.TechnologiesToLearnOrImproveIn.length+1) * 4.2) / 2;
     return (
         <group ref={ref}>
             {
@@ -30,21 +30,23 @@ function TechnologiesVisualizationComponent() {
 
 export default function TechnologiesVisualization() {
     return (
-        <Canvas concurrent shadowMap camera={{ position: [0, 0, 180], fov: 100 }}>
-            <color attach="background" args={['#000']} />
-            <ambientLight intensity={0.4} />
-            <Suspense fallback={null}>
-                <TechnologiesVisualizationComponent />
-            </Suspense>
-            <OrbitControls
-                enablePan={false}
-                target={[0, 2, 0]}
-                enableDamping={true}
-                minPolarAngle={Math.PI / 2}
-                maxPolarAngle={Math.PI / 2}
-                minDistance={3}
-                maxDistance={400}
-            />
-        </Canvas>
+        <div className="technologies__technologies-canvas">
+            <Canvas concurrent shadowMap camera={{ position: [0, 0, 140], fov: 20 }}>
+                <color attach="background" args={['#3C5A32']} />
+                <ambientLight intensity={0.4} />
+                <Suspense fallback={null}>
+                    <TechnologiesVisualizationComponent />
+                </Suspense>
+                <OrbitControls
+                    enablePan={false}
+                    target={[0, 0, 0]}
+                    enableDamping={true}
+                    minPolarAngle={Math.PI / 2}
+                    maxPolarAngle={Math.PI / 2}
+                    minDistance={3}
+                    maxDistance={400}
+                />
+            </Canvas>
+        </div>
     )
 }

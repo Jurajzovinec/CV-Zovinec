@@ -11,11 +11,11 @@ export default function Text({ children, vAlign = 'center', hAlign = 'center', s
 
   const mesh = useUpdate(
     (self) => {
-      const size = new THREE.Vector3()
-      self.geometry.computeBoundingBox()
-      self.geometry.boundingBox.getSize(size)
-      self.position.x = hAlign === 'center' ? -size.x / 2 : hAlign === 'right' ? 0 : -size.x
-      self.position.y = vAlign === 'center' ? -size.y / 2 : vAlign === 'top' ? 0 : -size.y
+      const size = new THREE.Vector3();
+      self.geometry.computeBoundingBox();
+      self.geometry.boundingBox.getSize(size);
+      self.position.x = hAlign === 'center' ? -size.x / 2 : hAlign === 'right' ? 0 : -size.x;
+      self.position.y = vAlign === 'center' ? -size.y / 2 : vAlign === 'top' ? 0 : -size.y;
     },
     [children]
   );
