@@ -37,4 +37,6 @@ class App extends React.Component {
   }
 }
 
+
+//https://threejs.org/docs/#api/en/lights/SpotLight
 export default App;

@@ -20,7 +20,6 @@ const Surfboard = (props) => {
             rotation={props.rotation}
             scale={animationProps.scale}
             position={animationProps.position}
-            color={animationProps.color}
             onClick={() => setActive(!active)}
             onPointerOver={() => props.lightUpItem(true)}
             onPointerOut={() => props.lightUpItem(false)}
