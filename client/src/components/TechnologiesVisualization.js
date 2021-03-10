@@ -7,8 +7,10 @@ import technologiesToImproveIn from '../json/technologiesToImproveIn.json';
 function TechnologiesVisualizationComponent() {
 
     const ref = useRef();
-    useFrame(({ clock }) => (ref.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.1))
+    useFrame(({ clock }) => (ref.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.1));
+
     let incrementingHeight = ((technologiesToImproveIn.TechnologiesToLearnOrImproveIn.length+1) * 4.2) / 2;
+
     return (
         <group ref={ref}>
             {
@@ -26,7 +28,6 @@ function TechnologiesVisualizationComponent() {
         </group>
     )
 }
-
 
 export default function TechnologiesVisualization() {
     return (
