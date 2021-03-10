@@ -56,14 +56,15 @@ export default function ProjectRoom() {
         <div className="technologies__technologies-canvas">
             <Canvas concurrent shadowMap camera={{ position: [0, 0, 10], fov: 20 }}>
                 <color attach="background" args={['#fff']} />
-                <ambientLight intensity={0.2} />
+                <ambientLight intensity={0.3} />
                 
-
-                <spotLight intensity={0.1} position={[0, 1, 3]} castShadow />
-                <spotLight intensity={0.1} position={[0, 1, -3]} castShadow />
-                <spotLight intensity={0.1} position={[-2, 1, 3]} castShadow />
-                <spotLight intensity={0.1} position={[2, 1, 3]} castShadow />
-                
+                {/*
+                <spotLight intensity={0.2} position={[0, 1, 3]}  />
+                <spotLight intensity={0.2} position={[0, 1, -3]}  />
+                <spotLight intensity={0.2} position={[-2, 1, 3]}  />
+                <spotLight intensity={0.2} position={[2, 1, 3]}  />
+                */}
+        
                 {lightSurfboard ? <TargetedSpotlight position={SurfboardProps.position} /> : null}
                 {lightFruitFlyDispenser ? <TargetedSpotlight position={[-0.80, 0.45, -0.0]} /> : null}
                 {lightTwoDPlotter ? <TargetedSpotlight position={[-0.40, 0.99, 0.0]} /> : null}

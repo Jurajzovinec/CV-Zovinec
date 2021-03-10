@@ -1,20 +1,25 @@
 import React, { useMemo, useState } from 'react';
 import ImmMachinePart from './ImmMachinePart';
-import { useSpring, a } from '@react-spring/three';
 
 const ImmMachine = (props) => {
     // Assemble models together, Start with base
     const partsUrl = ["IMM-Alarm.gltf", "IMM-Base.gltf", "IMM-ControlDisplay.gltf", "IMM-Dispenser.gltf", "IMM-Injection.gltf", "IMM-Panneling.gltf"]
-    const [active, setActive] = useState(false);
+    const [expanded, setExpanded] = useState(false);
+    
     return (
-        <a.mesh
+        <mesh
             {...props}
-            onClick={() => setActive(!active)}
+            onClick={() => setExpanded(!expanded)}
             onPointerOver={() => props.lightUpItem(true)}
             onPointerOut={() => props.lightUpItem(false)}
         >
-            {partsUrl.map((eachPart) => <ImmMachinePart key={eachPart} partUrl={eachPart} />)}
-        </a.mesh>
+            {partsUrl.map((eachPart) => <ImmMachinePart 
+                key={eachPart} 
+                position={props.position} 
+                partUrl={eachPart} 
+                expanded={expanded}/>)
+            }
+        </mesh>
     )
 
 }
