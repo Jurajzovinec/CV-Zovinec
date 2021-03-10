@@ -33,6 +33,17 @@ const FruitFlyDispenserTank = (props) => {
         }
     }, 200);
 
+    useEffect(() => {
+        if(gltf){
+            gltf.scene.traverse((o) => {
+                if (o.isMesh) {
+                    o.material.metalness = 0.65;
+                    o.material.roughness = 0;
+                    o.castShadow=true;
+                }});
+        }  
+    }, [gltf]);
+
     const animationProps = useSpring({
         position: changeDirection ? [props.position[0], props.position[1] + 0.02, props.position[2]] : [props.position[0], props.position[1], props.position[2]]
     });

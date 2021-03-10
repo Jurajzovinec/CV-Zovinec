@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import FruitFlyDispenserTank from './FruitFlyDispenserTank';
 
@@ -9,6 +9,17 @@ const FruitFlyDispenser = (props) => {
     const [active, setActive] = useState(false);
 
     useMemo(() => new GLTFLoader().load(url, set), [url]);
+
+    useEffect(() => {
+        if(gltf){
+            gltf.scene.traverse((o) => {
+                if (o.isMesh) {
+                    o.material.metalness = 0.65;
+                    o.material.roughness = 0;
+                    o.castShadow=true;
+                }});
+        }  
+    }, [gltf]);
 
     return gltf ?
         <group>

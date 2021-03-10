@@ -8,6 +8,7 @@ import Surfboard from './3DProjectRoomComponents/Surfboard';
 import DrawingSlicer from './3DProjectRoomComponents/DrawingSlicer';
 import TwoDPlotter from './3DProjectRoomComponents/TwoDPlotter';
 import TargetedSpotlight from './3DProjectRoomComponents/TargetedSpotlight';
+import GrounPlane from './3DProjectRoomComponents/GroundPlane';
 
 
 export default function ProjectRoom() {
@@ -58,20 +59,23 @@ export default function ProjectRoom() {
                 <color attach="background" args={['#fff']} />
                 <ambientLight intensity={0.3} />
                 
-                {/*
                 <spotLight intensity={0.2} position={[0, 1, 3]}  />
                 <spotLight intensity={0.2} position={[0, 1, -3]}  />
+                
+                
                 <spotLight intensity={0.2} position={[-2, 1, 3]}  />
                 <spotLight intensity={0.2} position={[2, 1, 3]}  />
-                */}
+                
         
-                {lightSurfboard ? <TargetedSpotlight position={SurfboardProps.position} /> : null}
+                {lightSurfboard ? <TargetedSpotlight position={[0.71, 0.8, 0]} /> : null}
                 {lightFruitFlyDispenser ? <TargetedSpotlight position={[-0.80, 0.45, -0.0]} /> : null}
-                {lightTwoDPlotter ? <TargetedSpotlight position={[-0.40, 0.99, 0.0]} /> : null}
-                {lightImmMachine ? <TargetedSpotlight position={[0, 0.9, -0.25]} /> : null}
+                {lightTwoDPlotter ? <TargetedSpotlight position={[-0.40, 0.8, -0.12]} /> : null}
+                {lightImmMachine ? <TargetedSpotlight position={[0, 0.8, -0.25]} /> : null}
                 {lightDrawingSlicer ? <TargetedSpotlight position={[0.41, 0.14, -0.25]} /> : null}
 
                 <Suspense fallback={null}>
+
+                    <GrounPlane/>
 
                     <TableModel rotation={[-Math.PI / 2, 0, 0]} />
 

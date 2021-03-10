@@ -14,7 +14,7 @@ const TargetedSpotlight = ({ position }) => {
         scene.add(light.current.target);
         scene.add(obj.current);
         light.current.target = obj.current;
-        setLightIntensity(4);
+        setLightIntensity(3);
     }, [light, scene]);
 
     const basePropsObject = {
@@ -22,14 +22,14 @@ const TargetedSpotlight = ({ position }) => {
         intensity: lightIntensity,
         angle: Math.PI / 20,
         distance: 2.5,
-        decay: 1.5,
+        decay: 0,
     };
 
     const emitPositionLight1 = [position[0], position[1] + 1, position[2]];
 
     return (
         obj && light && scene   ?
-            <spotLight {...basePropsObject} position={emitPositionLight1} >
+            <spotLight {...basePropsObject} position={emitPositionLight1} castShadow >
                 <object3D ref={obj} position={position} />
             </spotLight> : null
 
