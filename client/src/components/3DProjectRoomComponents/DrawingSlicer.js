@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import DrawingSlicerBottomSheet from './DrawingSlicerBottomSheet';
+import DrawingSlicerTopSheet from './DrawingSlicerTopSheet';
 import DrawingSlicerScissors from './DrawingSlicerScissors';
 
 const DrawingSlicer = (props) => {
@@ -12,18 +14,29 @@ const DrawingSlicer = (props) => {
 
     useMemo(() => new GLTFLoader().load(url, set), [url]);
     return gltf ?
-        (<group>
-            <mesh
-                {...props}
-                onClick={() => setActive(!active)}
-                onPointerOver={() => props.lightUpItem(true)}
-                onPointerOut={() => props.lightUpItem(false)}
+        (<group
+            onClick={() => setActive(!active)}
+            onPointerOver={() => props.lightUpItem(true)}
+            onPointerOut={() => props.lightUpItem(false)}
+        >
+            <DrawingSlicerBottomSheet
 
-            >
-                <primitive object={gltf.scene} />
-            </mesh>
-            <DrawingSlicerScissors 
-                
+                move={active}
+                rotation={props.rotation}
+                position={props.position}
+                scale={props.scale}
+
+            />
+            <DrawingSlicerTopSheet
+
+                move={active}
+                rotation={props.rotation}
+                position={props.position}
+                scale={props.scale}
+
+            />
+            <DrawingSlicerScissors
+
                 move={active}
                 rotation={props.rotation}
                 position={props.position}

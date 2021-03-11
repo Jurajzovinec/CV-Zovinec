@@ -1,6 +1,6 @@
 import React, { Suspense, useState, useRef } from 'react';
 import { Canvas } from 'react-three-fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, softShadows } from '@react-three/drei';
 import ImmMachine from './3DProjectRoomComponents/ImmMachine';
 import TableModel from './3DProjectRoomComponents/TableModel';
 import FruitFlyDispenser from './3DProjectRoomComponents/FruitFlyDispenser';
@@ -20,7 +20,7 @@ export default function ProjectRoom() {
     const [lightSurfboard, setLightSurfboard] = useState(false);
 
     const FruitFlyDispenserProps = {
-        rotation: [0,0,0],
+        rotation: [0, 0, 0],
         scale: [1.5, 1.5, 1.5],
         position: [-0.65, 0.28, 0.2],
         lightUpItem: ((value) => setLightFruitFlyDispenser(value))
@@ -35,14 +35,14 @@ export default function ProjectRoom() {
     const ImmMachineProps = {
         rotation: [-Math.PI / 2, 0, Math.PI / 2],
         position: [0, 0.17, -0.14],
-        scale:[0.07, 0.07, 0.07],
+        scale: [0.07, 0.07, 0.07],
         lightUpItem: ((value) => setLightImmMachine(value))
     };
 
     const DrawingSlicerProps = {
         rotation: [-Math.PI / 2, 0, -Math.PI / 2],
-        position: [0.41, 0.14, -0.09],
-        scale:[1.5, 1.5, 1.5],
+        position: [0.41, 0.14, -0.15],
+        scale: [1.5, 1.5, 1.5],
         lightUpItem: ((value) => setLightDrawingSlicer(value))
     };
 
@@ -55,33 +55,33 @@ export default function ProjectRoom() {
 
     return (
         <div className="technologies__technologies-canvas">
-            <Canvas concurrent shadowMap camera={{ position: [0, 0, 10], fov: 20 }}>
+            <Canvas concurrent shadowMap colorManagement camera={{ position: [0, 0, 10], fov: 20 }}>
                 <color attach="background" args={['#fff']} />
                 <ambientLight intensity={0.3} />
-                
-                <spotLight intensity={0.2} position={[0, 1, 3]}  />
-                <spotLight intensity={0.2} position={[0, 1, -3]}  />
-                
-                
-                <spotLight intensity={0.2} position={[-2, 1, 3]}  />
-                <spotLight intensity={0.2} position={[2, 1, 3]}  />
-                
-        
+
+                <spotLight intensity={0.2} position={[0, 1, 3]} />
+                <spotLight intensity={0.2} position={[0, 1, -3]} />
+
+
+                <spotLight intensity={0.2} position={[-2, 1, 3]} />
+                <spotLight intensity={0.2} position={[2, 1, 3]} />
+
+
                 {lightSurfboard ? <TargetedSpotlight position={[0.71, 0.8, 0]} /> : null}
                 {lightFruitFlyDispenser ? <TargetedSpotlight position={[-0.80, 0.45, -0.0]} /> : null}
                 {lightTwoDPlotter ? <TargetedSpotlight position={[-0.40, 0.8, -0.12]} /> : null}
                 {lightImmMachine ? <TargetedSpotlight position={[0, 0.8, -0.25]} /> : null}
-                {lightDrawingSlicer ? <TargetedSpotlight position={[0.41, 0.14, -0.25]} /> : null}
+                {lightDrawingSlicer ? <TargetedSpotlight position={[0.33, 0.14, -0.16]} /> : null}
 
                 <Suspense fallback={null}>
 
-                    <GrounPlane/>
+                    <GrounPlane />
 
                     <TableModel rotation={[-Math.PI / 2, 0, 0]} />
 
                     <FruitFlyDispenser {...FruitFlyDispenserProps} />
 
-                    <TwoDPlotter  {...TwoDPlotterProps}/>
+                    <TwoDPlotter  {...TwoDPlotterProps} />
 
                     <ImmMachine {...ImmMachineProps} />
 
@@ -90,7 +90,7 @@ export default function ProjectRoom() {
                     <Surfboard {...SurfboardProps} />
 
                 </Suspense>
-                
+
                 <OrbitControls
                     enablePan={true}
                     target={[0, 0, 0]}
@@ -100,6 +100,7 @@ export default function ProjectRoom() {
                 // minDistance={3}
                 // maxDistance={400}
                 />
+
             </Canvas>
         </div>
     )

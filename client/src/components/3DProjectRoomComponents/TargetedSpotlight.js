@@ -23,13 +23,26 @@ const TargetedSpotlight = ({ position }) => {
         angle: Math.PI / 20,
         distance: 2.5,
         decay: 0,
+
+
     };
 
     const emitPositionLight1 = [position[0], position[1] + 1, position[2]];
 
     return (
-        obj && light && scene   ?
-            <spotLight {...basePropsObject} position={emitPositionLight1} castShadow >
+        obj && light && scene ?
+            <spotLight
+                {...basePropsObject}
+                position={emitPositionLight1}
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+                shadow-camera-far={50}
+                shadow-camera-left={-10}
+                shadow-camera-right={10}
+                shadow-camera-top={10}
+                shadow-camera-bottom={-10}
+                castShadow
+            >
                 <object3D ref={obj} position={position} />
             </spotLight> : null
 
