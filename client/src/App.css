@@ -15,14 +15,14 @@ body{
   padding:0;
   height: 100%;
   width: 100%;
-  background-color: rgb(60, 90, 50);
+  /*background-color: #ec4b01;*/
+  background-image: linear-gradient(rgb(24, 21, 21),#ec4b01);
 }
 
 span{
   padding-left: 1em;
   font-size: 1.2em;
 }
-
 
 #root{
   align-items: center;
@@ -33,6 +33,7 @@ span{
 .content{
   display: flex;
   flex-direction: column;
+  padding-top: 0.5em;
 }
 
 /*2nd level -> Main content items (upper .content)*/
@@ -105,7 +106,21 @@ span{
 
 /*4th level -> Technologies (event button) (upper .techonologies)*/
 .technologies__technologies-canvas{
-  height: 500px;
+  height: 100%;
+  width:auto;
+}
+
+.technologies__technologies-canvas p {
+  position: absolute;
+  overflow: hidden;
+  background-color: #ec4b01;
+  border: solid 2px ;
+  padding: 0.5em;
+  border-radius: 0.7em;
+}
+
+.technologies__technologies-canvas p:hover {
+  cursor: none;
 }
 
 /*3rd level -> Enter the project room event button (upper .content__techonologies-visualization)*/
@@ -144,6 +159,34 @@ span{
   box-shadow: 5px #888888;
   outline: none;
 }
+
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.navbar h1 {
+  color: #fff;
+}
+
+.navbar .links {
+  margin-left: auto;
+}
+
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.navbar a:hover {
+  color: #fff;
+}
+
 
 
 

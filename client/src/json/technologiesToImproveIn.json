@@ -1,14 +1,18 @@
 {
     "TechnologiesToLearnOrImproveIn": [
         "CSS",
-        "React",
+        "React JS",
         "Algorithmic Design",
-        "Internetofthings",
-        "3Dvisualization",
-        "ThreeJS",
+        "Internet of things",
+        "3D visualization",
+        "Three JS",
         "Docker",
         "Kubernetes",
         "Design Patterns",
-        "Best Practices"
+        "Best Practices",
+        "Design Structures",
+        "CAD development",
+        "CAE development",
+        "Robotics"
     ]
 }

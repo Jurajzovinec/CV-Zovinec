@@ -56,14 +56,14 @@ export default function ProjectRoom() {
     return (
         <div className="technologies__technologies-canvas">
             <Canvas concurrent shadowMap colorManagement camera={{ position: [0, 0, 10], fov: 20 }}>
-                <color attach="background" args={['#fff']} />
-                <ambientLight intensity={0.3} />
+                
+                <ambientLight intensity={0.5} />
 
-                <spotLight intensity={0.2} position={[0, 1, 3]} />
-                <spotLight intensity={0.2} position={[0, 1, -3]} />
+                <spotLight intensity={0.5} position={[0, 1, 3]} color={"white"}/>
+                <spotLight intensity={0.5} position={[0, 1, -3]} color={"white"}/>
 
 
-                <spotLight intensity={0.2} position={[-2, 1, 3]} />
+                <spotLight intensity={0.5} position={[-2, 1, 3]} color={"white"}/>
                 <spotLight intensity={0.2} position={[2, 1, 3]} />
 
 
@@ -100,15 +100,7 @@ export default function ProjectRoom() {
                 // minDistance={3}
                 // maxDistance={400}
                 />
-
             </Canvas>
         </div>
     )
 }
-
-
-//  
-
-//rotation={[-Math.PI / 2 - Math.PI / 12, 0, Math.PI]} scale={[0.35, 0.35, 0.35]} position={[0.71, 0.66, -0.2]}
-//distance={2}
-//decay={1}

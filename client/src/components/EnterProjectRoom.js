@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProjectRoom from './ProjectRoom';
 
 export default function EnterProjectRoom(props) {
@@ -35,10 +36,11 @@ export default function EnterProjectRoom(props) {
             {
                 expanded &&
                 <div className="enter-the-project-room__button-container">
-                    <button className="button-container__enter-button" >Enter the room</button>
+                    <button className="button-container__enter-button">
+                        <Link to="/projectRoom" style={{ color: 'inherit', textDecoration: 'inherit'}}>Enter the room</Link>
+                    </button>
                 </div>
             }
-            <ProjectRoom/>
         </div>
     )
 }

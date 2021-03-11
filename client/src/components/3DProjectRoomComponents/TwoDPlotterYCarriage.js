@@ -10,7 +10,8 @@ const TwoDPlotterYCarriage = (props) => {
     useMemo(() => new GLTFLoader().load(url, set), [url]);
    
     const animationProps = useSpring({
-        position: props.move ? [props.position[0]+0.17, props.position[1], props.position[2]+0.14] : [props.position[0]-0.17, props.position[1], props.position[2]]
+        position: props.move ? [props.position[0]+0.17, props.position[1], props.position[2]+0.14] : [props.position[0]-0.17, props.position[1], props.position[2]],
+        config: { mass: 10, friction: 300 }
     });
 
     useEffect(() => {

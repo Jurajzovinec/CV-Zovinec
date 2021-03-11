@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import TechnologiesVisualization from './TechnologiesVisualization';
+import TechnologiesVisualization2D from './TechnologiesVisualization2D';
 
 export default function Technologies(props) {
 
@@ -27,14 +27,14 @@ export default function Technologies(props) {
     };
 
     return (
-        <div className="technologies">
+        <div className="technologies" id="block-for-randomized-p-tags">
             <div
                 className={determineClassName()}
                 onClick={()=>clickAction()}>
                 <span>{props.name}</span>
             </div>
             {
-                expanded && <TechnologiesVisualization/>
+                expanded && <TechnologiesVisualization2D/>
             }
         </div>
     )
