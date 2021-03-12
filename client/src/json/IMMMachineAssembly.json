@@ -1,0 +1,16 @@
+{
+    "title": "CAD Assembly automation",
+    "natureOfTheProject": "Automation of CAD software with python API calls",
+    "aboutTheProject":"This application is dedicated to creation of huge CAD master model (whole Injection moulding machine) with use of creoson application and creopyson python library. Implementation of this application happened in Kraussmaffei Technologies company, which focuses on production of injection moulding machines. Application automates manual process of creation CAD master model. This process is based on assembling of models in to master model according to information from ERP system.",
+    "usedTechnologies":[
+        "Python 3.7",
+        "PyCharm",
+        "Creoson & Creopyson",
+        "Creo Parametric",
+        "SAP system"
+    ],
+    "references":{
+        "gitHubRepo":"https://github.com/Jurajzovinec/Automation-of-CAD-model-creation",
+        "diplomaThesis": "https://opac.crzp.sk/?fn=detailBiblioForm&sid=B5E6096D0905A43EE80D1719D4C8&seo=CRZP-detail-kniha"
+    }
+}

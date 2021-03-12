@@ -21,7 +21,6 @@ const TableModel = (props) => {
             gltf.current=data;
             gltf.current.scene.traverse((o) => {
                 if (o.isMesh) {
-                    o.receiveShadow = true;
                     o.castShadow = true;
                     o.material.metalness = 0.5;
                     o.material.roughness = 0;

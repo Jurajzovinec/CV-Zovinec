@@ -35,7 +35,7 @@ const FruitFlyDispenser = (props) => {
     return isMounted && modelLoaded ?
         <group>
             <mesh {...props}
-                onClick={() => setActive(!active)}
+                onClick={() => {setActive(!active); props.setBlog()}}
                 onPointerOver={() => props.lightUpItem(true)}
                 onPointerOut={() => props.lightUpItem(false)}
             >

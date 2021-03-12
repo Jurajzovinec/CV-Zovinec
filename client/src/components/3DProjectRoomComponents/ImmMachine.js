@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImmMachinePart from './ImmMachinePart';
 
 const ImmMachine = (props) => {
@@ -9,7 +9,7 @@ const ImmMachine = (props) => {
     return (
         <mesh
             {...props}
-            onClick={() => setExpanded(!expanded)}
+            onClick={() => {setExpanded(!expanded); props.setBlog()}}
             onPointerOver={() => props.lightUpItem(true)}
             onPointerOut={() => props.lightUpItem(false)}
         >

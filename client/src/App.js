@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Navbar />
+       <Navbar />
         <Switch>
           <Route exact path="/">
 
@@ -40,17 +40,16 @@ class App extends React.Component {
               </div>
 
             </div>
+
           </Route>
           <Route exact path="/projectroom">
             <ProjectRoom />
           </Route>
         </Switch>
+        
       </Router>
-
     )
   }
 }
 
-
-//https://threejs.org/docs/#api/en/lights/SpotLight
 export default App;

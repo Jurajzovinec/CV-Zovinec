@@ -1,0 +1,14 @@
+{
+    "title": "2 D plotter",
+    "natureOfTheProject": "Mechanical designing and programming",
+    "aboutTheProject":"2D plotter is my recent project which downgrades my very old 3D printer to 2D plotter. In order to do so, I had to rebuilt hardware of the machine (designing my own components included) and do couple of changes to firmware which is easily configurable. This project made me realize how much I love connection between programming and mechanical designing !",
+    "usedTechnologies":[
+        "3D printing",
+        "Platformio (VS code extension)",
+        "Marlin CNC Firmware"
+    ],
+    "references":{
+        "videoOfMachine":"https://www.youtube.com/watch?v=rGozqXQ0cDk",
+        "gitHubRepo":"https://www.youtube.com/watch?v=rGozqXQ0cDk"
+    }
+}

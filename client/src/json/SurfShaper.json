@@ -1,0 +1,16 @@
+{
+    "title": "Surf Shaper",
+    "natureOfTheProject": "Fullstack application",
+    "aboutTheProject":"Application uses Onshape cloud based CAD software, where parametric model is configured. After user confirms changes, model is exported to GLTF format from Onshape and rendered on the website with three js. Frontend of this application is based on Reactjs framework. 3D world is mostly built on react-three-fiber library by Paul Henschell. User can compare and configure three models at the same time.",
+    "usedTechnologies":[
+        "ReactJs",
+        "NodeJs",
+        "OnShapeCAD",
+        "REST API",
+        "Heroku"
+    ],
+    "references":{
+        "applicationURL":"https://surf-shaper.herokuapp.com/",
+        "gitHubRepo":"https://github.com/Jurajzovinec/Surf-Shaper"
+    }
+}

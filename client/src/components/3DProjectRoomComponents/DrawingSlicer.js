@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DrawingSlicerBottomSheet from './DrawingSlicerBottomSheet';
 import DrawingSlicerTopSheet from './DrawingSlicerTopSheet';
 import DrawingSlicerScissors from './DrawingSlicerScissors';
@@ -11,7 +11,7 @@ const DrawingSlicer = (props) => {
 
     return (
         <group
-            onClick={() => setActive(!active)}
+            onClick={() => {setActive(!active); props.setBlog()}}
             onPointerOver={() => props.lightUpItem(true)}
             onPointerOut={() => props.lightUpItem(false)}
         >

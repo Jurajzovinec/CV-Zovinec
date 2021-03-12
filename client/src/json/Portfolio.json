@@ -1,0 +1,13 @@
+{
+    "title": "Portofolio",
+    "natureOfTheProject": "Frontend application",
+    "aboutTheProject":"This web app has been created in order to sum up my relevant projects which may give you hint about my current programming skills.",
+    "usedTechnologies":[
+        "ReactJs",
+        "THREEJs",
+        "Heroku"
+    ],
+    "references":{
+        "gitHubRepo":"https://github.com/Jurajzovinec/Automation-of-CAD-model-creation"
+    }
+}
