@@ -5,42 +5,55 @@ import { useSpring, a } from '@react-spring/three';
 const DrawingSlicerTopSheet = (props) => {
 
     const url = "DrawingSlicer-SheetTop.gltf";
-    const [gltf, set] = useState(() => null);
-    const [spin, setSpin] = useState(() => false);
+    const gltf = useRef(null);
     const [move, setMove] = useState(() => false);
+
+    const [modelLoaded, setModelLoaded] = useState(false);
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true)
+        return () => setIsMounted(false);
+    }, []);
 
     useEffect(() => {
         if (props.move === true) {
-            
-            setSpin(true);
-            console.log("Moving");
             setTimeout(() => {
                 setMove(true);
             }, 2000);
         } else {
-            setSpin(false);
-            console.log("Default");
             setTimeout(setMove(false), 2000);
         }
     }, [props.move]);
 
-
-    useMemo(() => new GLTFLoader().load(url, set), [url]);
+    useMemo(() => new GLTFLoader().load(url,
+        (data) => {
+            gltf.current = data;
+            gltf.current.scene.traverse((o) => {
+                if (o.isMesh) {
+                    o.material.roughness = 0;
+                    o.receiveShadow = true;
+                    o.castShadow = true;
+                }
+            });
+            setModelLoaded(true);
+        }), [url]);
 
     const animatedProps = useSpring({
-        position: move ? [props.position[0], props.position[1]+0.15, props.position[2] ] : [props.position[0], props.position[1], props.position[2]],
+        position: move ? [props.position[0], props.position[1] + 0.15, props.position[2]] : [props.position[0], props.position[1], props.position[2]],
         config: { mass: 10, friction: 100 }
     });
 
 
-    return gltf ?
+    return isMounted && modelLoaded ?
         (
             <a.mesh
                 rotation={props.rotation}
                 position={animatedProps.position}
                 scale={props.scale}
             >
-                <primitive object={gltf.scene} />
+                <primitive object={gltf.current.scene} />
             </a.mesh>
         ) : null;
 }

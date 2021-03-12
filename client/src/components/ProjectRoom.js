@@ -1,6 +1,6 @@
-import React, { Suspense, useState, useRef } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Canvas } from 'react-three-fiber';
-import { OrbitControls, softShadows } from '@react-three/drei';
+import { OrbitControls} from '@react-three/drei';
 import ImmMachine from './3DProjectRoomComponents/ImmMachine';
 import TableModel from './3DProjectRoomComponents/TableModel';
 import FruitFlyDispenser from './3DProjectRoomComponents/FruitFlyDispenser';
@@ -9,7 +9,6 @@ import DrawingSlicer from './3DProjectRoomComponents/DrawingSlicer';
 import TwoDPlotter from './3DProjectRoomComponents/TwoDPlotter';
 import TargetedSpotlight from './3DProjectRoomComponents/TargetedSpotlight';
 import GrounPlane from './3DProjectRoomComponents/GroundPlane';
-
 
 export default function ProjectRoom() {
 

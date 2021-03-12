@@ -4,36 +4,39 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 const DrawingSlicerBottomSheet = (props) => {
 
     const url = "DrawingSlicer-SheetBottom.gltf";
-    const [gltf, set] = useState(() => null);
-    const [spin, setSpin] = useState(() => false);
-    const [move, setMove] = useState(() => false);
+    
+    const gltf = useRef(null);
+    
+    const [modelLoaded, setModelLoaded] = useState(false);
+
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        if (props.move === true) {
-            
-            setSpin(true);
-            console.log("Moving");
-            setTimeout(() => {
-                setMove(true);
-            }, 2000);
-        } else {
-            setSpin(false);
-            console.log("Default");
-            setTimeout(setMove(false), 2000);
-        }
-    }, [props.move]);
+        setIsMounted(true)
+        return () => setIsMounted(false);
+      }, []);
 
+    useMemo(() => new GLTFLoader().load(url,
+        (data)=>{
+            gltf.current=data;
+            gltf.current.scene.traverse((o) => {
+                if (o.isMesh) {
+                    o.material.roughness = 0;
+                    o.receiveShadow = true;
+                    o.castShadow = true;
+                }
+            });
+            setModelLoaded(true);
+        }), [url]);
 
-    useMemo(() => new GLTFLoader().load(url, set), [url]);
-
-    return gltf ?
+    return isMounted && modelLoaded ?
         (
             <mesh
                 rotation={props.rotation}
                 position={props.position}
                 scale={props.scale}
             >
-                <primitive object={gltf.scene} />
+                <primitive object={gltf.current.scene} />
             </mesh>
         ) : null;
 }

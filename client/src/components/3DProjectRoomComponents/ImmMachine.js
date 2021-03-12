@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import ImmMachinePart from './ImmMachinePart';
 
 const ImmMachine = (props) => {
-    // Assemble models together, Start with base
+    
     const partsUrl = ["IMM-Alarm.gltf", "IMM-Base.gltf", "IMM-ControlDisplay.gltf", "IMM-Dispenser.gltf", "IMM-Injection.gltf", "IMM-Panneling.gltf"]
     const [expanded, setExpanded] = useState(false);
     

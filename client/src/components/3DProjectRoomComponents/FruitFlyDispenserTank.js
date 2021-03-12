@@ -3,14 +3,13 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useSpring, a } from '@react-spring/three';
 
 const useInterval = (callback, delay) => {
+    
     const savedCallback = useRef();
 
-    // Remember the latest callback.
     useEffect(() => {
         savedCallback.current = callback;
     }, [callback]);
 
-    // Set up the interval.
     useEffect(() => {
         let id = setInterval(() => {
             savedCallback.current();
@@ -22,10 +21,33 @@ const useInterval = (callback, delay) => {
 const FruitFlyDispenserTank = (props) => {
 
     const url = "FruiFlyDispenser-Tank.gltf";
-    const [gltf, set] = useState(() => null);
+
+    const gltf = useRef(null);
+    
     const [changeDirection, setChangeDirection] = useState(() => false);
 
-    useMemo(() => new GLTFLoader().load(url, set), [url]);
+    const [modelLoaded, setModelLoaded] = useState(false);
+
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true)
+        return () => setIsMounted(false);
+      }, []);
+
+      useMemo(() => new GLTFLoader().load(url,
+        (data)=>{
+            gltf.current=data;
+            gltf.current.scene.traverse((o) => {
+                if (o.isMesh) {
+                    o.material.metalness = 0.65;
+                    o.material.roughness = 0;
+                    o.receiveShadow = true;
+                    o.castShadow = true;
+                }
+            });
+            setModelLoaded(true);
+        }), [url]);
 
     useInterval(() => {
         if (props.move === true) {
@@ -33,28 +55,18 @@ const FruitFlyDispenserTank = (props) => {
         }
     }, 200);
 
-    useEffect(() => {
-        if(gltf){
-            gltf.scene.traverse((o) => {
-                if (o.isMesh) {
-                    o.material.metalness = 0.65;
-                    o.material.roughness = 0;
-                    o.castShadow=true;
-                }});
-        }  
-    }, [gltf]);
 
     const animationProps = useSpring({
         position: changeDirection ? [props.position[0], props.position[1] + 0.02, props.position[2]] : [props.position[0], props.position[1], props.position[2]]
     });
 
-    return gltf ?
+    return isMounted && modelLoaded ?
         (<a.mesh
             rotation={props.rotation}
             position={animationProps.position}
             scale={props.scale}
         >
-            <primitive object={gltf.scene} />
+            <primitive object={gltf.current.scene} />
         </a.mesh>) : null;
 }
 

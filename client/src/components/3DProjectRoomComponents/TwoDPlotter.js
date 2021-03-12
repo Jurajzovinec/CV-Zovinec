@@ -1,28 +1,39 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useSpring, a } from '@react-spring/three';
 import TwoDPlotterXCarriage from './TwoDPlotterXCarriage';
 
 const TwoDPlotter = (props) => {
     
     const url = "2DPlotter-Base.gltf";
-    const [gltf, set] = useState(() => null);
+
+    const gltf = useRef(null);
+    
+    const [modelLoaded, setModelLoaded] = useState(false);
+
+    const [isMounted, setIsMounted] = useState(false);
+    
     const [active, setActive] = useState(false);
 
-    useMemo(() => new GLTFLoader().load(url, set), [url]);
-
     useEffect(() => {
-        if(gltf){
-            gltf.scene.traverse((o) => {
-                if (o.isMesh) {
-                    o.material.metalness = 0.65;
-                    o.material.roughness = 0;
-                    o.castShadow=true;
-                }});
-        }  
-    }, [gltf]);
+        setIsMounted(true)
+        return () => setIsMounted(false);
+      }, []);
 
-    return gltf ?
+    useMemo(() => new GLTFLoader().load(url,
+        (data)=>{
+            gltf.current=data;
+            gltf.current.scene.traverse((o) => {
+                if (o.isMesh) {
+                    o.material.metalness = 0.9;
+                    o.material.roughness = 0;
+                    o.receiveShadow = true;
+                    o.castShadow = true;
+                }
+            });
+            setModelLoaded(true);
+        }), [url]);
+
+    return isMounted && modelLoaded ?
         <group>
             <mesh
                 {...props}
@@ -30,7 +41,7 @@ const TwoDPlotter = (props) => {
                 onPointerOver={() => props.lightUpItem(true)}
                 onPointerOut={() => props.lightUpItem(false)}
             >
-                <primitive object={gltf.scene} />
+                <primitive object={gltf.current.scene} />
             </mesh>
             <TwoDPlotterXCarriage position={props.position} rotation={props.rotation} move={active}/>
         </group> : null;

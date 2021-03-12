@@ -39,14 +39,15 @@ export default function CvInformation(props) {
 
     if (props.data) {
         if (Array.isArray(props.data)) {
-            props.data.map(element => {
+            props.data.forEach(element => {
                 mappedList.push({
                     name: element,
                     data: props.data[element]
                 });
+                return;
             });
         } else if ((typeof (props.data) === 'object')) {
-            Object.keys(props.data).map((element) => {
+            Object.keys(props.data).forEach((element) => {
                 mappedList.push({
                     name: element,
                     data: props.data[element]
@@ -90,11 +91,11 @@ export default function CvInformation(props) {
 
             {expanded ? <div>
                     {mappedList.map(nestedItem => {
-                        return <CvInformation
+                        return (<CvInformation
                             name={nestedItem.name}
                             data={nestedItem.data}
                             key={nestedItem.name}
-                        />
+                        />)
                     })}
                 </div> : null}
         

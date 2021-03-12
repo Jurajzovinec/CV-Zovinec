@@ -9,7 +9,6 @@ export default function Technologies(props) {
             setExpanded(!expanded);
     };
 
-
     const determineClassName = () => {
 
         let className;

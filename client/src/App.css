@@ -107,7 +107,7 @@ span{
 /*4th level -> Technologies (event button) (upper .techonologies)*/
 .technologies__technologies-canvas{
   height: 100%;
-  width:auto;
+  width:100%;
 }
 
 .technologies__technologies-canvas p {

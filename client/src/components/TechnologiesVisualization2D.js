@@ -1,14 +1,11 @@
-import React, { Suspense, useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame } from 'react-three-fiber';
-import { OrbitControls } from '@react-three/drei';
-import Text from './Text';
+import React, { useState, useEffect, useRef } from 'react';
 import technologiesToImproveIn from '../json/technologiesToImproveIn.json';
 
 // Do not place mines close to each other
+// position arrays are pushed into this array. This array is reference item which helps to determine possible collision of items.
 let minesField = [];
 
-const generateRandomNonCollidingPosition = (minesField) => {
-    // console.log(minesField);
+const generateRandomNonCollidingPositions = (minesField) => {
 
     let keepOnSearching = true;
     let generatedField;
@@ -25,13 +22,10 @@ const generateRandomNonCollidingPosition = (minesField) => {
                 breakLoop = false;
             }
         });
-
         if (breakLoop || (minesField.length === 0)) {
             keepOnSearching = false;
         }
-
     }
-
     minesField.push(generatedField);
     return generatedField;
 
@@ -41,32 +35,29 @@ const TechnologiesVisualizationComponent = ({ text }) => {
 
     const [isShowPTag, setShowPTag] = useState(() => false);
 
-    const positions = generateRandomNonCollidingPosition(minesField);
+    const positions = generateRandomNonCollidingPositions(minesField);
 
     const randomMultiplicatorX = (positions[0]).toString() + "%";
     const randomMultiplicatorY = (positions[1]).toString() + "%";
     const randomTimeOfShowingUp = Math.random() * 5000;
 
-    const [style, setStyle] = useState(() => {
-        return {
-            "position": "absolute",
-            "overflow": "hidden",
-            "top": randomMultiplicatorY,
-            "left": randomMultiplicatorX
-        };
+    const style = useRef({
+        "position": "absolute",
+        "overflow": "hidden",
+        "top": randomMultiplicatorY,
+        "left": randomMultiplicatorX
     });
 
     useEffect(() => {
         setTimeout(() => {
             setShowPTag(true);
         }, randomTimeOfShowingUp);
-    },
-        []);
+
+    }, [randomTimeOfShowingUp]);
 
     return (isShowPTag &&
-        <p style={style}>{text}</p>
+        <p style={style.current}>{text}</p>
     )
-
 };
 
 export default function TechnologiesVisualization2D() {
