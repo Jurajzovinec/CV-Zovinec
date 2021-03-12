@@ -26,7 +26,6 @@ const Surfboard = (props) => {
                 if (o.isMesh) {
                     o.material.metalness = 0.8;
                     o.material.roughness = 0;
-                    o.receiveShadow = true;
                     o.castShadow = true;
                 }
             });

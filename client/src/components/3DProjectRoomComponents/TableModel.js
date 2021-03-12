@@ -21,10 +21,10 @@ const TableModel = (props) => {
             gltf.current=data;
             gltf.current.scene.traverse((o) => {
                 if (o.isMesh) {
-                    o.material.metalness = 0.9;
-                    o.material.roughness = 0;
                     o.receiveShadow = true;
                     o.castShadow = true;
+                    o.material.metalness = 0.5;
+                    o.material.roughness = 0;
                 }
             });
             setModelLoaded(true);

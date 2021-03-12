@@ -52,7 +52,6 @@ const TechnologiesVisualizationComponent = ({ text }) => {
         setTimeout(() => {
             setShowPTag(true);
         }, randomTimeOfShowingUp);
-
     }, [randomTimeOfShowingUp]);
 
     return (isShowPTag &&

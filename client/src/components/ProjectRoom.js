@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react';
 import { Canvas } from 'react-three-fiber';
-import { OrbitControls} from '@react-three/drei';
+import { OrbitControls, softShadows} from '@react-three/drei';
 import ImmMachine from './3DProjectRoomComponents/ImmMachine';
 import TableModel from './3DProjectRoomComponents/TableModel';
 import FruitFlyDispenser from './3DProjectRoomComponents/FruitFlyDispenser';
@@ -33,7 +33,7 @@ export default function ProjectRoom() {
 
     const ImmMachineProps = {
         rotation: [-Math.PI / 2, 0, Math.PI / 2],
-        position: [0, 0.17, -0.14],
+        position: [0, 0.18, -0.14],
         scale: [0.07, 0.07, 0.07],
         lightUpItem: ((value) => setLightImmMachine(value))
     };
@@ -51,21 +51,23 @@ export default function ProjectRoom() {
         position: [0.71, 0.66, -0.2],
         lightUpItem: ((value) => setLightSurfboard(value))
     };
-
+        
     return (
         <div className="technologies__technologies-canvas">
-            <Canvas concurrent shadowMap colorManagement camera={{ position: [0, 0, 10], fov: 20 }}>
+            <Canvas 
+                concurrent 
+                shadowMap 
+                colorManagement 
+                camera={{ position: [0, 0, 10], fov: 20 }}
                 
+            >
                 <ambientLight intensity={0.5} />
-
-                <spotLight intensity={0.5} position={[0, 1, 3]} color={"white"}/>
-                <spotLight intensity={0.5} position={[0, 1, -3]} color={"white"}/>
-
-
-                <spotLight intensity={0.5} position={[-2, 1, 3]} color={"white"}/>
-                <spotLight intensity={0.2} position={[2, 1, 3]} />
-
-
+                 
+                <spotLight intensity={0.5} position={[0, 1, 3]} color={"yellow"}/>
+                <spotLight intensity={0.5} position={[0, 1, -3]}  color={"white"}/>
+                <spotLight intensity={0.5} position={[-2, 1, 3]}  color={"blue"}/>
+                <spotLight intensity={0.2} position={[2, 1, 3]}  />
+                
                 {lightSurfboard ? <TargetedSpotlight position={[0.71, 0.8, 0]} /> : null}
                 {lightFruitFlyDispenser ? <TargetedSpotlight position={[-0.80, 0.45, -0.0]} /> : null}
                 {lightTwoDPlotter ? <TargetedSpotlight position={[-0.40, 0.8, -0.12]} /> : null}

@@ -26,7 +26,6 @@ const FruitFlyDispenser = (props) => {
                 if (o.isMesh) {
                     o.material.metalness = 0.35;
                     o.material.roughness = 0;
-                    o.receiveShadow = true;
                     o.castShadow = true;
                 }
             });

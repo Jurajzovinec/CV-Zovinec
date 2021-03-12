@@ -22,7 +22,6 @@ const DrawingSlicerBottomSheet = (props) => {
             gltf.current.scene.traverse((o) => {
                 if (o.isMesh) {
                     o.material.roughness = 0;
-                    o.receiveShadow = true;
                     o.castShadow = true;
                 }
             });

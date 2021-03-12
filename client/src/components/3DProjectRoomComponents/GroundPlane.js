@@ -1,3 +1,7 @@
+import {softShadows} from '@react-three/drei';
+
+softShadows()
+
 const GrountPlane = () => {
     return ( 
         <mesh receiveShadow castShadow rotation={[-Math.PI/2, 0, 0]} position={[0, -0.65, 0]}>      

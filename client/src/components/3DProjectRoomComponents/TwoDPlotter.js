@@ -26,7 +26,6 @@ const TwoDPlotter = (props) => {
                 if (o.isMesh) {
                     o.material.metalness = 0.9;
                     o.material.roughness = 0;
-                    o.receiveShadow = true;
                     o.castShadow = true;
                 }
             });

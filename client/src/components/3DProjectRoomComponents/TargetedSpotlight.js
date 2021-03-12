@@ -14,17 +14,15 @@ const TargetedSpotlight = ({ position }) => {
         scene.add(light.current.target);
         scene.add(obj.current);
         light.current.target = obj.current;
-        setLightIntensity(3);
+        setLightIntensity(5);
     }, [light, scene]);
 
     const basePropsObject = {
         ref: light,
         intensity: lightIntensity,
         angle: Math.PI / 20,
-        distance: 2.5,
-        decay: 0,
-
-
+        //distance: 2.5,
+        //decay: 5,
     };
 
     const emitPositionLight1 = [position[0], position[1] + 1, position[2]];
@@ -34,14 +32,9 @@ const TargetedSpotlight = ({ position }) => {
             <spotLight
                 {...basePropsObject}
                 position={emitPositionLight1}
-                shadow-mapSize-width={1024}
-                shadow-mapSize-height={1024}
-                shadow-camera-far={50}
-                shadow-camera-left={-10}
-                shadow-camera-right={10}
-                shadow-camera-top={10}
-                shadow-camera-bottom={-10}
                 castShadow
+                shadow-mapSize-width={512}
+                shadow-mapSize-height={512}
             >
                 <object3D ref={obj} position={position} />
             </spotLight> : null

@@ -22,7 +22,6 @@ const ImmMachinePart = ({ partUrl, position, expanded }) => {
                 if (o.isMesh) {
                     o.material.metalness = 0.1;
                     o.material.roughness = 0.5;
-                    o.receiveShadow = true;
                     o.castShadow = true;
                 }
             });
