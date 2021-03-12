@@ -65,14 +65,14 @@ export default function ProjectRoom() {
                 concurrent
                 shadowMap
                 colorManagement
-                camera={{ position: [0, 0, 10], fov: 20 }}
+                camera={{ position: [2, 1.5, 4], fov: 20 }}
 
             >
                 <ambientLight intensity={0.5} />
 
-                <spotLight intensity={0.5} position={[0, 1, 3]} color={"yellow"} />
+                <spotLight intensity={0.5} position={[0, 1, 3]} color={"white"} />
                 <spotLight intensity={0.5} position={[0, 1, -3]} color={"white"} />
-                <spotLight intensity={0.5} position={[-2, 1, 3]} color={"blue"} />
+                <spotLight intensity={0.5} position={[-2, 1, 3]} color={"white"} />
                 <spotLight intensity={0.2} position={[2, 1, 3]} />
 
                 {lightSurfboard ? <TargetedSpotlight position={[0.71, 0.8, 0]} /> : null}

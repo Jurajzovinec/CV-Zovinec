@@ -22,7 +22,7 @@ const TableModel = (props) => {
             gltf.current.scene.traverse((o) => {
                 if (o.isMesh) {
                     o.castShadow = true;
-                    o.material.metalness = 0.5;
+                    o.material.metalness = 0.9;
                     o.material.roughness = 0;
                 }
             });
