@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "portfolio-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,6 @@
     "@testing-library/user-event": "^12.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-modal": "^3.12.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-three-fiber": "^5.3.19",
@@ -21,13 +20,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    
-    "build-client": "react-scripts build",
-    "install-client": "npm install",
-    
-    "install-build-client": "npm run install-client && npm run build-client",
-    
-    "heroku-postbuild": "npm run install-build-client"
+    "build": "react-scripts build",
+    "install": "npm install",
+    "heroku-postbuild": "npm run install && npm run buiild"
   },
   "eslintConfig": {
     "extends": [
