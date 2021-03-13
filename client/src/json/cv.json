@@ -1,6 +1,6 @@
 {
     "CV": {
-        "AboutMe": "25 years old junior JavascriptDeveloper who is passionate about3D technologies (CAD, 3Danimations, Augmented realityetc). I am always interested inoptimal and agile solutions.",
+        "AboutMe": "25 years old junior JavascriptDeveloper who is passionate about 3D technologies (CAD, 3Danimations, Augmented realityetc). I am always interested in optimal and agile solutions.",
         "Skills": {
             "JavaScript": [
                 "TypeScript",
@@ -49,15 +49,15 @@
             "University": {
                 "School": "Slovak University of Technology",
                 "Faculty": "Faculty of Materials Science and Technology",
-                "Degree": "Master's (2020)",
+                "Degree": "Master's (2020), Laureated for both bachelor and diploma thesis",
                 "Program": "Production systems and devices",
                 "City": "Trnava"
             }
         },
         "JobsExperience": {
-            "Time": "07/2018-10/2020",
-            "Position": "CAD support keyuser Engineer",
-            "Company": "Kraussmaffei",
+            "Time": "07/2018 - 10/2020",
+            "Position": "CAD support Engineer",
+            "Company": "Kraussmaffei s.r.o.",
             "JobDescription": [
                 "Providing CAD support to other mechanical/electrical engineers by creating models of purchased parts and adding them to database",
                 "Parametric Design",
