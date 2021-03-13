@@ -4,17 +4,16 @@
   "description": "CV of Juraj Zovinec",
   "main": "index.js",
   "scripts": {
-    "go-to-client": "cd client",
-    "init-cv": "react-scripts start",
-    "start": "go-to-client && init-cv",
-    "test": "echo \"Error: no test specified\" && exit 1"
+
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+
+    "install-build-client": "npm run install-client && npm run build-client",
+
+    "heroku-postbuild": "npm run install-build-client"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@react-three/drei": "^3.10.0",
-    "jshint": "^2.12.0",
-    "react-three-fiber": "^5.3.19",
-    "three": "^0.126.1"
   }
 }
