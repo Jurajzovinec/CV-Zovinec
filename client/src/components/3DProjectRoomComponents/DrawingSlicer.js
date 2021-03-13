@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import DrawingSlicerBottomSheet from './DrawingSlicerBottomSheet';
 import DrawingSlicerTopSheet from './DrawingSlicerTopSheet';
 import DrawingSlicerScissors from './DrawingSlicerScissors';

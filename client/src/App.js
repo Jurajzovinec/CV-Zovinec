@@ -33,7 +33,7 @@ class App extends React.Component {
               </div>
 
               <div className="content__techonologies-visualization">
-                <Technologies name={"Technologies I want to learn/improve in/work with."} />
+                {/*<Technologies name={"Technologies I want to learn/improve in/work with."} /> */}
               </div>
 
               <div className="content__project-room-enter">

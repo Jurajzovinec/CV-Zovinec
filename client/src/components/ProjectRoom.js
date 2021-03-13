@@ -66,7 +66,6 @@ export default function ProjectRoom() {
                 shadowMap
                 colorManagement
                 camera={{ position: [2, 1.5, 4], fov: 20 }}
-
             >
                 <ambientLight intensity={0.5} />
 
