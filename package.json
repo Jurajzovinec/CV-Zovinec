@@ -20,9 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "install": "npm install",
-    "heroku-postbuild": "npm run install && npm run build"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
