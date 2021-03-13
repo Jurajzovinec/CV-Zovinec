@@ -1,20 +1,50 @@
 {
-  "name": "cv",
-  "version": "1.0.0",
-  "description": "CV of Juraj Zovinec",
-  "main": "index.js",
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@react-spring/three": "^9.0.0-rc.3",
+    "@react-three/drei": "^3.10.2",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-modal": "^3.12.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-three-fiber": "^5.3.19",
+    "web-vitals": "^1.1.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.12.0"
+  },
   "scripts": {
-
-    "install-client": "cd client && npm install",
-    "build-client": "cd client && npm run build",
-    "start": "cd client && npm run start",
-
+    "start": "react-scripts start",
+    
+    "build-client": "react-scripts build",
+    "install-client": "npm install",
+    
     "install-build-client": "npm run install-client && npm run build-client",
-
+    
     "heroku-postbuild": "npm run install-build-client"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
