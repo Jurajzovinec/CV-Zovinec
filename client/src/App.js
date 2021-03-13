@@ -7,6 +7,7 @@ import CvInformation from './components/CvInformation';
 import Technologies from './components/Technologies';
 import EnterProjectRoom from './components/EnterProjectRoom';
 import ProjectRoom from './components/ProjectRoom';
+import CvInPdf from './components/CvInPdf';
 
 class App extends React.Component {
   constructor() {
@@ -45,6 +46,11 @@ class App extends React.Component {
           <Route exact path="/projectroom">
             <ProjectRoom />
           </Route>
+
+          <Route exact path="/cvinpdf">
+            <CvInPdf />
+          </Route>
+
         </Switch>
         
       </Router>
