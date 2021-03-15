@@ -127,10 +127,6 @@ span{
   transition: 0.2 2000ms ease-in-out;
 }
 
-.technologies__technologies-canvas:hover {
-  cursor: none;
-}
-
 /*3rd level -> Enter the project room event button (upper .content__techonologies-visualization)*/
 .enter-project-room{
   cursor: pointer;
