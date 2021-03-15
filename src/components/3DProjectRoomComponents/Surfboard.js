@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useSpring, a } from '@react-spring/three';
+import { useSpring, a } from 'react-spring/three';
 
 const Surfboard = (props) => {
     // Play with non symetric scaling

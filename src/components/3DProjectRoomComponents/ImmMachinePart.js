@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect, useRef, useState } from 'react';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useSpring, a } from '@react-spring/three';
+import { useSpring, a } from 'react-spring/three';
 
 const ImmMachinePart = ({ partUrl, position, expanded }) => {
 
