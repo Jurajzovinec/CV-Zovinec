@@ -119,9 +119,15 @@ span{
   border: solid 2px ;
   padding: 0.5em;
   border-radius: 0.7em;
+  transition: 0.2 2000ms ease-in-out;
 }
 
-.technologies__technologies-canvas p:hover {
+.technologies__technologies-canvas::after{
+  opacity: 0.5;
+  transition: 0.2 2000ms ease-in-out;
+}
+
+.technologies__technologies-canvas:hover {
   cursor: none;
 }
 
@@ -207,6 +213,37 @@ h1, h2, h3 {
   padding: 0.2em;
 }
 
+/* appear - on page load */
+.fade-appear {
+  opacity: 0;
+  z-index: 1;
+}
+.fade-appear.fade-appear-active {
+opacity: 1;
+transition: opacity 1000ms linear;
+}
+
+/* enter */
+.fade-enter {
+opacity: 0;
+z-index: 1;
+}
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 5000ms linear 5000ms;
+}
+
+/* exit */
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 5000ms linear;
+}
+.fade-exit-done {
+opacity: 0;
+}
 
 
 

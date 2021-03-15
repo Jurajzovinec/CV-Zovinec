@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import technologiesToImproveIn from '../json/technologiesToImproveIn.json';
+import { CSSTransition } from 'react-transition-group';
 
 // Do not place mines close to each other
 // position arrays are pushed into this array. This array is reference item which helps to determine possible collision of items.
@@ -55,13 +56,23 @@ const TechnologiesVisualizationComponent = ({ text }) => {
     }, [randomTimeOfShowingUp]);
 
     return (isShowPTag &&
-        <p style={style.current}>{text}</p>
+        <CSSTransition
+            in={isShowPTag}
+            appear={true}
+            timeout={1000}
+            classNames="fade"
+        >
+            <p style={style.current}>{text}</p>
+        </CSSTransition>
     )
 };
 
-export default function TechnologiesVisualization2D() {
+const appear = true
+
+export default function TechnologiesVisualization2D(props) {
     minesField = [];
     return (
+
         <div className="technologies__technologies-canvas" id="tech">
             {technologiesToImproveIn.TechnologiesToLearnOrImproveIn.map(technology => {
                 return (
@@ -70,8 +81,9 @@ export default function TechnologiesVisualization2D() {
                         text={technology}
                     />
                 )
-
             })}
         </div>
+
+
     )
 }

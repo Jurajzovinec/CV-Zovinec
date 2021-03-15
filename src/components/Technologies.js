@@ -33,7 +33,7 @@ export default function Technologies(props) {
                 <span>{props.name}</span>
             </div>
             {
-                expanded && <TechnologiesVisualization2D/>
+                expanded && <TechnologiesVisualization2D appear={expanded}/>
             }
         </div>
     )
