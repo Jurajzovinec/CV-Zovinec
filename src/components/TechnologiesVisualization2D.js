@@ -67,8 +67,6 @@ const TechnologiesVisualizationComponent = ({ text }) => {
     )
 };
 
-const appear = true
-
 export default function TechnologiesVisualization2D(props) {
     minesField = [];
     return (
@@ -83,7 +81,5 @@ export default function TechnologiesVisualization2D(props) {
                 )
             })}
         </div>
-
-
     )
 }

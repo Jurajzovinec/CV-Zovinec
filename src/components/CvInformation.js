@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import snippets from '..//json/snippets.json';
 
 export default function CvInformation(props) {
@@ -24,12 +24,23 @@ export default function CvInformation(props) {
 
     const isClickable = useRef(false);
 
+    useEffect(() => {
+        if(props.expand!==undefined){
+            if(props.expand===false){
+                setExpanded(false);
+            }
+        }
+    }, [props.expand]);
+
     const clickAction = () => {
 
         if (refURL.current !== "") {
             navigateToRef(refURL.current);
         } else {
             setExpanded(!expanded);
+            if(props.collapseSectionsOnToggle){
+                props.collapseSectionsOnToggle('expandCV');
+            }
         }
     };
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import TechnologiesVisualization2D from './TechnologiesVisualization2D';
 
 export default function Technologies(props) {
@@ -6,8 +6,19 @@ export default function Technologies(props) {
     const [expanded, setExpanded] = useState(() => false);
 
     const clickAction = () => {
-            setExpanded(!expanded);
+        setExpanded(!expanded);
+        if (props.collapseSectionsOnToggle) {
+            props.collapseSectionsOnToggle('expandTechnologies');
+        }
     };
+
+    useEffect(() => {
+        if(props.expand!==undefined){
+            if(props.expand===false){
+                setExpanded(false);
+            }
+        }
+    }, [props.expand]);
 
     const determineClassName = () => {
 
@@ -29,11 +40,11 @@ export default function Technologies(props) {
         <div className="technologies" id="block-for-randomized-p-tags">
             <div
                 className={determineClassName()}
-                onClick={()=>clickAction()}>
+                onClick={() => clickAction()}>
                 <span>{props.name}</span>
             </div>
             {
-                expanded && <TechnologiesVisualization2D appear={expanded}/>
+                expanded && <TechnologiesVisualization2D appear={expanded} />
             }
         </div>
     )

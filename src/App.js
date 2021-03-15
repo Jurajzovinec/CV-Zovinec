@@ -13,14 +13,32 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      cvDetails: cv.CV
+      expandCV: false,
+      expandTechnologies: false,
+      expandProjectRoom: false,
     };
+    this.collapseSectionsOnToggle = this.collapseSectionsOnToggle.bind(this);
+  }
+
+  collapseSectionsOnToggle(value) {
+    
+    let stateCopy = this.state;
+    const keys = Object.keys(stateCopy);
+
+    keys.forEach(element => {
+      if (element === value) {
+        stateCopy[element] = true;
+      } else {
+        stateCopy[element] = false;
+      }
+      this.setState(stateCopy);
+    });
   }
 
   render() {
     return (
       <Router>
-       <Navbar />
+        <Navbar />
         <Switch>
           <Route exact path="/">
 
@@ -28,16 +46,25 @@ class App extends React.Component {
 
               <div className="content__cv-recursive-ladder">
                 <CvInformation
-                  name={"CuricullumVitae"}
-                  data={this.state.cvDetails} />
+                  name={"CuricullumVitaeJSON"}
+                  data={cv.CV}
+                  collapseSectionsOnToggle={(value) => this.collapseSectionsOnToggle(value)}
+                  expand={this.state.expandCV}
+                />
               </div>
 
               <div className="content__techonologies-visualization">
-                <Technologies name={"Technologies I want to learn/improve in/work with."} /> 
+                <Technologies name={"Technologies I want to learn/improve in/work with."}
+                  collapseSectionsOnToggle={(value) => this.collapseSectionsOnToggle(value)}
+                  expand={this.state.expandTechnologies}
+                />
               </div>
 
               <div className="content__project-room-enter">
-                <EnterProjectRoom name={"Projects"} />
+                <EnterProjectRoom name={"Projects"}
+                  collapseSectionsOnToggle={(value) => this.collapseSectionsOnToggle(value)}
+                  expand={this.state.expandProjectRoom}
+                />
               </div>
 
             </div>
@@ -52,7 +79,7 @@ class App extends React.Component {
           </Route>
 
         </Switch>
-        
+
       </Router>
     )
   }

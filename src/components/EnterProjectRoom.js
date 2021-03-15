@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function EnterProjectRoom(props) {
@@ -7,6 +7,9 @@ export default function EnterProjectRoom(props) {
 
     const clickAction = () => {
         setExpanded(!expanded);
+        if(props.collapseSectionsOnToggle){
+            props.collapseSectionsOnToggle('expandProjectRoom');
+        }
     };
 
     const determineClassName = () => {
@@ -24,6 +27,14 @@ export default function EnterProjectRoom(props) {
         }
         return className;
     };
+
+    useEffect(() => {
+        if(props.expand!==undefined){
+            if(props.expand===false){
+                setExpanded(false);
+            }
+        }
+    }, [props.expand]);
 
     return (
         <div className="enter-project-room">
