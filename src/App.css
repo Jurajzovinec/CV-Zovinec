@@ -31,12 +31,14 @@ span{
   justify-content: center;
 }
 
+
 /*1st level -> Main content object (upper root)*/
 .content{
   display: flex;
   flex-direction: column;
   padding-top: 0.5em;
 }
+
 
 /*2nd level -> Main content items (upper .content)*/
 .content__cv-recursive-ladder{
@@ -108,7 +110,12 @@ span{
 
 /*4th level -> Technologies (event button) (upper .techonologies)*/
 .technologies__technologies-canvas{
-  height: 85%;
+  
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  height: 100%;
   width:100%;
 }
 
