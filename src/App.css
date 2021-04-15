@@ -46,7 +46,7 @@ span{
   margin-top: 2em;
   margin-right: 2em;
   margin-left: 2em;
-  padding-top: 2em;
+  padding-top: 5em;
   padding-right: 2em;
   padding-left: 2em;
 }
@@ -108,19 +108,9 @@ span{
   padding-bottom: 0.5em;  
 }
 
-/*4th level -> Technologies (event button) (upper .techonologies)*/
-.technologies__technologies-canvas{
-  z-index:0;
+.techonologies-visualization__layout p{
   position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width:100%;
-}
-
-.technologies__technologies-canvas p {
-  position: absolute;
-  overflow: auto;
+  overflow: hidden;
   background-color: #ec4b01;
   border: solid 2px ;
   padding: 0.5em;
@@ -128,10 +118,6 @@ span{
   transition: 0.2 2000ms ease-in-out;
 }
 
-.technologies__technologies-canvas::after{
-  opacity: 0.5;
-  transition: 0.2 2000ms ease-in-out;
-}
 
 /*3rd level -> Enter the project room event button (upper .content__techonologies-visualization)*/
 .enter-project-room{
@@ -172,8 +158,8 @@ span{
 
 .navbar {
   z-index:1;
-  position: absolute;
-  overflow:visible;
+  position: fixed;
+  top:0;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -200,6 +186,16 @@ span{
 
 .navbar a:hover {
   color: #fff;
+}
+
+/*Canvas od 3D objecst in project room*/
+.technologies__technologies-canvas{
+  z-index:0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width:100%;
 }
 
 .project-room--about-the-project-modal{
@@ -249,14 +245,14 @@ h1, h2, h3 {
   z-index: 1;
 }
 .fade-appear.fade-appear-active {
-  opacity: 1;
-  transition: opacity 1000ms linear;
+opacity: 1;
+transition: opacity 1000ms linear;
 }
 
 /* enter */
 .fade-enter {
-  opacity: 0;
-  z-index: 1;
+opacity: 0;
+z-index: 1;
 }
 .fade-enter.fade-enter-active {
   opacity: 1;
@@ -274,7 +270,6 @@ h1, h2, h3 {
 .fade-exit-done {
 opacity: 0;
 }
-
 
 
 

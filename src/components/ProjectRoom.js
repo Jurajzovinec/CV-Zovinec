@@ -102,7 +102,7 @@ export default function ProjectRoom() {
 
                 <OrbitControls
                     enablePan={false}
-                    target={[0, 0, 0]}
+                    target={[0.3, 0, 0]}
                     enableDamping={true}
                     // minPolarAngle={Math.PI / 2}
                     // maxPolarAngle={Math.PI / 2}

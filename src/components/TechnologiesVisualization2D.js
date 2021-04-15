@@ -34,7 +34,7 @@ const generateRandomNonCollidingPositions = (minesField) => {
 
 const TechnologiesVisualizationComponent = ({ text }) => {
 
-    const [isShowPTag, setShowPTag] = useState(() => false);
+    const [isShowPTag, setShowPTag] = useState(false);
 
     const positions = generateRandomNonCollidingPositions(minesField);
 
@@ -71,7 +71,7 @@ export default function TechnologiesVisualization2D(props) {
     minesField = [];
     return (
 
-        <div className="technologies__technologies-canvas" id="tech">
+        <div className="techonologies-visualization__layout" id="tech">
             {technologiesToImproveIn.TechnologiesToLearnOrImproveIn.map(technology => {
                 return (
                     <TechnologiesVisualizationComponent
