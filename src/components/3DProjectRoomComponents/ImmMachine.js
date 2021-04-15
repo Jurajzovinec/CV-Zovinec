@@ -9,9 +9,7 @@ const ImmMachine = (props) => {
     return (
         <mesh
             {...props}
-            onClick={() => {setExpanded(!expanded); props.setBlog()}}
-            onPointerOver={() => props.lightUpItem(true)}
-            onPointerOut={() => props.lightUpItem(false)}
+            onClick={() => {setExpanded(!expanded)}}
         >
             {partsUrl.map((eachPart) => <ImmMachinePart 
                 key={eachPart} 

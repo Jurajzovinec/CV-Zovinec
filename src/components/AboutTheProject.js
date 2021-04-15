@@ -6,47 +6,47 @@ import Portfolio from '../json/Portfolio.json';
 import SurfShaper from '../json/SurfShaper.json';
 import TwoDPlotter from '../json/TwoDPlotter.json';
 
-const AboutTheProject = ({ project }) => {
+const AboutTheProject = ({ displayedProject }) => {
 
-    const [displayedProject, setDisplayedProject] = useState(null);
+    const [displayedBlog, setDispleyedBlog] = useState(null);
 
     useEffect(() => {
-        switch (project) {
+        switch (displayedProject) {
             case ('DrawingSlicer'):
-                setDisplayedProject(DrawingSlicer);
+                setDispleyedBlog(DrawingSlicer);
                 break;
             case ('SurfShaper'):
-                setDisplayedProject(SurfShaper);
+                setDispleyedBlog(SurfShaper);
                 break;
             case ('TwoDPlotter'):
-                setDisplayedProject(TwoDPlotter);
+                setDispleyedBlog(TwoDPlotter);
                 break;
             case ('IMMMachineAssembly'):
-                setDisplayedProject(IMMMachineAssembly);
+                setDispleyedBlog(IMMMachineAssembly);
                 break;
             case ('FruitFlyDispenser'):
-                setDisplayedProject(FruitFlyDispenser);
+                setDispleyedBlog(FruitFlyDispenser);
                 break;
             default:
-                setDisplayedProject(Portfolio);
+                setDispleyedBlog(Portfolio);
                 break;
         }
-    }, [project]);
+    }, [displayedProject]);
 
     return (
-        displayedProject &&
+        displayedBlog &&
         (<div className="project-room--about-the-project-modal">
-            <h1>{displayedProject.title}</h1>
-            <h3>{displayedProject.natureOfTheProject}</h3>
-            <h3>{displayedProject.aboutTheProject}</h3>
+            <h1>{displayedBlog.title}</h1>
+            <h3>{displayedBlog.natureOfTheProject}</h3>
+            <h3>{displayedBlog.aboutTheProject}</h3>
             <h3>Used technologies:</h3>
-            {displayedProject.usedTechnologies.map(technology => {
+            {displayedBlog.usedTechnologies.map(technology => {
                 return <li key={technology} >{technology}</li>
             })}
             <h3>References:</h3>
-            {Object.keys(displayedProject.references).map(link => {
+            {Object.keys(displayedBlog.references).map(link => {
                 return <li key={link} >
-                    <a href={displayedProject.references[link]} target="_blank">{link}</a>
+                    <a href={displayedBlog.references[link]} target="_blank">{link}</a>
                 </li>
             })
             }

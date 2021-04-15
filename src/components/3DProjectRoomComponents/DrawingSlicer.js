@@ -8,12 +8,10 @@ const DrawingSlicer = (props) => {
     // - scissors do one revolution -> after top sheet is moved up nad rotated, in the meantime A2 is changed to A3s
 
     const [active, setActive] = useState(false);
-
+    
     return (
         <group
-            onClick={() => {setActive(!active); props.setBlog()}}
-            onPointerOver={() => props.lightUpItem(true)}
-            onPointerOut={() => props.lightUpItem(false)}
+            onClick={() => {setActive(!active)}}
         >
             <DrawingSlicerBottomSheet
 

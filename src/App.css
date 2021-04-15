@@ -110,9 +110,8 @@ span{
 
 /*4th level -> Technologies (event button) (upper .techonologies)*/
 .technologies__technologies-canvas{
-  
+  z-index:0;
   position: absolute;
-  overflow: hidden;
   top: 0px;
   left: 0px;
   height: 100%;
@@ -121,7 +120,7 @@ span{
 
 .technologies__technologies-canvas p {
   position: absolute;
-  overflow: hidden;
+  overflow: auto;
   background-color: #ec4b01;
   border: solid 2px ;
   padding: 0.5em;
@@ -172,8 +171,9 @@ span{
 }
 
 .navbar {
-  /*position: absolute;*/
-  overflow:auto;
+  z-index:1;
+  position: absolute;
+  overflow:visible;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -204,12 +204,39 @@ span{
 
 .project-room--about-the-project-modal{
   position: absolute;
-  top: 10%;
-  left: 70%;
+  top: 20%;
+  left: 60%;
   overflow: hidden;
   padding: 2em;
-  max-height: 60%;
+  max-height: 50%;
   overflow-y: auto;
+  margin-right: 5%;
+}
+
+/* Swicthing components */
+.switching-icons-container{
+  z-index:1;
+  position: fixed;
+  bottom: 0;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 5%;
+}
+
+.switching-icons-container__left, .switching-icons-container__right{
+  flex:1;
+  height: 100%;
+  cursor: pointer;
+  width: 30%;
+  margin-left: 20%;
+  margin-right: 20%;
+  filter: invert(100%);
+}
+
+.switching-icons-container__left{
+  transform: rotate(180deg);
 }
 
 h1, h2, h3 {
@@ -222,14 +249,14 @@ h1, h2, h3 {
   z-index: 1;
 }
 .fade-appear.fade-appear-active {
-opacity: 1;
-transition: opacity 1000ms linear;
+  opacity: 1;
+  transition: opacity 1000ms linear;
 }
 
 /* enter */
 .fade-enter {
-opacity: 0;
-z-index: 1;
+  opacity: 0;
+  z-index: 1;
 }
 .fade-enter.fade-enter-active {
   opacity: 1;

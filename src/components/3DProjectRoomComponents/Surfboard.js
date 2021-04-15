@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useSpring, a } from 'react-spring/three';
 
 const Surfboard = (props) => {
-    // Play with non symetric scaling
+
     const url = "SurfBoard.gltf";
 
     const gltf = useRef(null);
@@ -42,9 +42,7 @@ const Surfboard = (props) => {
             rotation={props.rotation}
             scale={animationProps.scale}
             position={animationProps.position}
-            onClick={() => {setActive(!active); props.setBlog()}}
-            onPointerOver={() => props.lightUpItem(true)}
-            onPointerOut={() => props.lightUpItem(false)}
+            onClick={() => {setActive(!active)}}
         >
             <primitive object={gltf.current.scene} />
             <meshStandardMaterial attach="material" metalness={0.65} roughness={0} />
