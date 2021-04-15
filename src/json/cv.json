@@ -9,10 +9,12 @@
                 "NodeJs",
                 "ExpressJs",
                 "ReactJs",
-                "Redux",
                 "NodeMailer",
                 "Webpack",
-                "Babel"
+                "Babel",
+                "Sequelize",
+                "Pupeteer",
+                "Jest"
             ],
             "Python": [
                 "CustomLibrary",
@@ -21,10 +23,9 @@
                 "UnitTesting"
             ],
             "Database": [
+                "SQL",
                 "AwsS3",
-                "MongoDB",
-                "Firestore",
-                "Windchill"
+                "MongoDB"
             ],
             "Deployment": [
                 "Heroku"

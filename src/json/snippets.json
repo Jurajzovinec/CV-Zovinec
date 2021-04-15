@@ -2,7 +2,7 @@
     "snippets":{
         "TypeScript": "https://github.com/Jurajzovinec/drawing-slicer/blob/master/src/lib/callPythonValidateFileService.ts",
         "Three-js":"https://github.com/Jurajzovinec/Surf-Shaper/blob/master/client/src/components/ThreeDWorld.js",
-        "RestAPI":"https://github.com/Jurajzovinec/Surf-Shaper/blob/master/lib/onshapeAPI.js",
+        "RestAPI":"https://github.com/Jurajzovinec/homework-cloud-talk/tree/master/cloudtalk_third_task/hubspot_API",
         "NodeJs":"https://github.com/Jurajzovinec/drawing-slicer/blob/master/src/server.ts",
         "ExpressJs":"https://github.com/Jurajzovinec/Surf-Shaper/blob/master/server.js",
         "NodeMailer":"https://github.com/Jurajzovinec/drawing-slicer/blob/master/src/lib/sendReport.ts",
@@ -10,6 +10,9 @@
         "Creopyson":"https://github.com/Jurajzovinec/Automation-of-CAD-model-creation/blob/master/KM_Assembly_Automation.py",
         "UnitTesting":"https://github.com/Jurajzovinec/drawing-slicer/blob/master/pythonServices/tests.py",
         "AwsS3":"https://github.com/Jurajzovinec/drawing-slicer/blob/master/src/lib/uploadFileToAWS.ts",
-        "ReactJs":"https://github.com/Jurajzovinec/CV-Zovinec/blob/master/client/src/components/CvInformation.js"
+        "ReactJs":"https://github.com/Jurajzovinec/CV-Zovinec/blob/master/client/src/components/CvInformation.js",
+        "Jest":"https://github.com/Jurajzovinec/homework-cloud-talk/tree/master/cloudtalk_first_task/tests",
+        "Sequelize":"https://github.com/Jurajzovinec/homework-cloud-talk/tree/master/cloudtalk_third_task",
+        "Pupeteer":"https://github.com/Jurajzovinec/homework-cloud-talk/blob/master/cloudtalk_second_task/scrapers/getWeatherForecastForAllCities.js"
     }
 }
